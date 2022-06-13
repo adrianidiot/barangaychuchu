@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/add-family', [App\Http\Controllers\Admin\Admin::class, 'addFamily'])->name('add.family');
 Route::get('/add-resident', [App\Http\Controllers\Admin\Admin::class, 'addResident'])->name('add.resident');
 
