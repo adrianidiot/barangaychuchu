@@ -125,7 +125,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header d-flex justify-content-between">
-                <a href="{{route('home')}}" class="btn btn-lg mid-blue text-light rounded">
+                <a href="{{route('dashboard')}}" class="btn btn-lg mid-blue text-light rounded">
                     Back
                 </a>
             </div>
