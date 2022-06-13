@@ -129,6 +129,14 @@
                     Back
                 </a>
             </div>
+            @if(session()->has('message'))
+                <div class="alert alert-success alert-dismissible show" role="alert">
+                    {{ session()->get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <!-- RESIDENTS -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -139,40 +147,94 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form>
+                            <form method="POST" action="{{route('store.resident')}}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="First Name">
+                                            <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" placeholder="First Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name">
+                                            <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" placeholder="Last Name">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Middle Name</label>
-                                            <input type="text" class="form-control" placeholder="Middle Name">
+                                            <input type="text" name="middleName" class="form-control @error('middleName') is-invalid @enderror" placeholder="Middle Name">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Category Type</label>
+                                            <div class="input-group mb-3">
+                                                <select name="categoryType" class="form-control @error('category') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="PWD'S">PWD'S</option>
+                                                  <option value="SENIOR CITIZENS">SENIOR CITIZENS</option>
+                                                  <option value="WORKING">WORKING</option>
+                                                  <option value="NOT-WORKING">NOT-WORKING</option>
+                                                  <option value="4PS">4PS</option>
+                                                  <option value="MINOR">MINOR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Sex</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control">
-                                                  <option selected>Choose...</option>
+                                                <select name="sex" class="form-control @error('sex') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
                                                   <option value="Male">Male</option>
                                                   <option value="Female">Female</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            <input type="number" name="age" class="form-control @error('age') is-invalid @enderror" placeholder="Age">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Birthdate</label>
+                                            <input type="date" name="birthDate" class="form-control @error('birthDate') is-invalid @enderror" placeholder="Birthdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Birth Place</label>
+                                            <input type="text" name="birthPlace" class="form-control @error('birthPlace') is-invalid @enderror" placeholder="Birth Place">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Civil Status</label>
+                                            <div class="input-group mb-3">
+                                                <select name="civilStatus" class="form-control @error('civilStatus') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="Single">Single</option>
+                                                  <option value="Maried">Maried</option>
+                                                  <option value="Divorced">Divorced</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Occupation</label>
+                                            <input type="text" name="occupation" class="form-control @error('occupation') is-invalid @enderror" placeholder="Occupation">
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn mid-blue text-light rounded">Submit</button>
                             </form>
                         </div>
                     </div>
