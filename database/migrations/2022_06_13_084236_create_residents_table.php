@@ -25,6 +25,7 @@ class CreateResidentsTable extends Migration
             $table->string('birth_place');
             $table->string('civil_status');
             $table->string('occupation');
+            $table->string('family_code');
             $table->timestamps();
         });
     }

@@ -4,13 +4,13 @@
 
 @section('admin-style')
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-<link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="{{asset('plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+<link href="{{asset('/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-<link href="plugins/node-waves/waves.css" rel="stylesheet" />
-<link href="plugins/animate-css/animate.css" rel="stylesheet" />
-<link href="css/style.css" rel="stylesheet">
-<link href="css/themes/all-themes.css" rel="stylesheet" />
+<link href="{{asset('plugins/node-waves/waves.css')}}" rel="stylesheet" />
+<link href="{{asset('plugins/animate-css/animate.css')}}" rel="stylesheet" />
+<link href="{{asset('css/style.css')}}" rel="stylesheet">
+<link href="{{asset('css/themes/all-themes.css')}}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -129,6 +129,14 @@
                     Back
                 </a>
             </div>
+            @if(session()->has('message'))
+                <div class="alert alert-success alert-dismissible show text-capitalize" role="alert">
+                    {{ session()->get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <!-- RESIDENTS -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -139,18 +147,95 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form>
-                                <div class="form-group">
-                                  <input type="email" class="form-control" placeholder="">
+                            <form method="POST" action="{{route('store.resident')}}">
+                                @csrf
+                                <input type="hidden" name="code" value="{{$familyId}}">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Middle Name</label>
+                                            <input type="text" name="middleName" class="form-control @error('middleName') is-invalid @enderror" placeholder="Middle Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Category Type</label>
+                                            <div class="input-group mb-3">
+                                                <select name="categoryType" class="form-control @error('category') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="PWD'S">PWD'S</option>
+                                                  <option value="SENIOR CITIZENS">SENIOR CITIZENS</option>
+                                                  <option value="WORKING">WORKING</option>
+                                                  <option value="NOT-WORKING">NOT-WORKING</option>
+                                                  <option value="4PS">4PS</option>
+                                                  <option value="MINOR">MINOR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Sex</label>
+                                            <div class="input-group mb-3">
+                                                <select name="sex" class="form-control @error('sex') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="Male">Male</option>
+                                                  <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            <input type="number" name="age" class="form-control @error('age') is-invalid @enderror" placeholder="Age">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Birthdate</label>
+                                            <input type="date" name="birthDate" class="form-control @error('birthDate') is-invalid @enderror" placeholder="Birthdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Birth Place</label>
+                                            <input type="text" name="birthPlace" class="form-control @error('birthPlace') is-invalid @enderror" placeholder="Birth Place">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Civil Status</label>
+                                            <div class="input-group mb-3">
+                                                <select name="civilStatus" class="form-control @error('civilStatus') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="Single">Single</option>
+                                                  <option value="Maried">Maried</option>
+                                                  <option value="Divorced">Divorced</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Occupation</label>
+                                            <input type="text" name="occupation" class="form-control @error('occupation') is-invalid @enderror" placeholder="Occupation">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                  <input type="password" class="form-control">
-                                </div>
-                                <div class="form-group form-check">
-                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn mid-blue text-light rounded">Add</button>
                             </form>
                         </div>
                     </div>
@@ -164,18 +249,18 @@
 
 
 @section('admin-scripts')
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="plugins/node-waves/waves.js"></script>
-    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/node-waves/waves.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+    <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
 @endsection

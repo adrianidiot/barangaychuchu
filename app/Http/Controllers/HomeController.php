@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Residents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $residents = Residents::orderBy('id', 'DESC')->get();
-        return view('home', compact('residents'));
+        $generatedFamilyId = rand(10000,99999);
+
+        return view('home', compact(['residents','generatedFamilyId']));
     }
 }

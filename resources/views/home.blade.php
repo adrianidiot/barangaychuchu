@@ -127,7 +127,7 @@
             <div class="block-header d-flex justify-content-between">
                 <h2>DASHBOARD</h2>
                 <div>
-                    <a href="{{route('add.family')}}" class="btn btn-lg mid-blue text-light rounded">
+                    <a href="add-family/{{$generatedFamilyId}}" class="btn btn-lg mid-blue text-light rounded">
                         <i class="material-icons">person_add</i> <span>Add Family</span>
                     </a>
                     <a href="{{route('add.resident')}}" class="btn btn-lg mid-blue text-light rounded">

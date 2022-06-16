@@ -19,6 +19,7 @@ class Residents extends Model
         'birth_date',
         'birth_place',
         'civil_status',
-        'occupation'
+        'occupation',
+        'family_code'
     ];
 }
