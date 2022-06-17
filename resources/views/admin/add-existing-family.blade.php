@@ -78,15 +78,21 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
+                        <a href="{{route('show.all-residents')}}" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>ALL RESIDENTS</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{route('show.pwd')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>PWD'S</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('show.senior-citizine')}}" href="senior_citizenes.php" class="menu-toggle">
+                        <a href="{{route('show.senior-citizen')}}" href="senior_citizens.php" class="menu-toggle">
                             <i class="material-icons">assignment</i>
-                            <span>SENIOR CITIZENES</span>
+                            <span>SENIOR CITIZENS</span>
                         </a>
                     </li>
                     <li>
