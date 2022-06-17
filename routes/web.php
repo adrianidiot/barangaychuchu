@@ -1,18 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\URL;
 
 if (App::environment('production')) {
     URL::forceScheme('https');
 }
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
-
-Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
@@ -31,5 +29,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/4ps', [App\Http\Controllers\Admin\Admin::class, 'Fourpis'])->name('show.4pis');
 });
 
-// Route::post('/login', [App\Http\Controllers\Admin\admin::class, 'login'])->name('login');
 
