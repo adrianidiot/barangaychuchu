@@ -25,9 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $residents = Residents::orderBy('id', 'DESC')->get();
         $generatedFamilyId = rand(10000,99999);
+        $residents = Residents::orderBy('id', 'DESC')->get();
 
-        return view('home', compact(['residents','generatedFamilyId']));
+        $working = Residents::where('category_type', 'WORKING')->count();
+        $nonWorking = Residents::where('category_type', 'NON-WORKING')->count();
+        $fourPs = Residents::where('category_type', '4PS')->count();
+        $pwds = Residents::where('category_type', 'PWD')->count();
+        $minors = Residents::where('category_type', 'MINOR')->count();
+        $seniorCitizens = Residents::where('category_type', 'SENIOR CITIZENS')->count();
+        
+        return view('home', compact(['residents','generatedFamilyId', 'working', 'nonWorking', 'fourPs', 'pwds', 'minors', 'seniorCitizens']));
     }
 }

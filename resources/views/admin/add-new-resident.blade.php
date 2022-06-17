@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Add Family')
+@section('title', 'Add Resident')
 
 @section('admin-style')
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-<link href="{{asset('plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-<link href="{{asset('/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+<link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-<link href="{{asset('plugins/node-waves/waves.css')}}" rel="stylesheet" />
-<link href="{{asset('plugins/animate-css/animate.css')}}" rel="stylesheet" />
-<link href="{{asset('css/style.css')}}" rel="stylesheet">
-<link href="{{asset('css/themes/all-themes.css')}}" rel="stylesheet" />
+<link href="plugins/node-waves/waves.css" rel="stylesheet" />
+<link href="plugins/animate-css/animate.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet">
+<link href="css/themes/all-themes.css" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -127,7 +127,7 @@
                 </a>
             </div>
             @if(session()->has('message'))
-                <div class="alert alert-success alert-dismissible show text-capitalize" role="alert">
+                <div class="alert alert-success alert-dismissible show" role="alert">
                     {{ session()->get('message') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -140,13 +140,12 @@
                     <div class="card rounded">
                         <div class="header">
                             <h2>
-                                Add Family
+                                Add New Resident
                             </h2>
                         </div>
                         <div class="body">
                             <form method="POST" action="{{route('store.resident')}}">
                                 @csrf
-                                <input type="hidden" name="code" value="{{$familyId}}">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -232,7 +231,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn mid-blue text-light rounded">Add</button>
+                                <button type="submit" class="btn mid-blue text-light rounded">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -246,18 +245,18 @@
 
 
 @section('admin-scripts')
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
-    <script src="{{asset('plugins/node-waves/waves.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
-    <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script>
-    <script src="{{asset('js/admin.js')}}"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/node-waves/waves.js"></script>
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="js/admin.js"></script>
 @endsection

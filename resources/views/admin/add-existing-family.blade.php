@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Add Resident')
+@section('title', 'Exist Family Residents')
 
 @section('admin-style')
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-<link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="{{asset('plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+<link href="{{asset('/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-<link href="plugins/node-waves/waves.css" rel="stylesheet" />
-<link href="plugins/animate-css/animate.css" rel="stylesheet" />
-<link href="css/style.css" rel="stylesheet">
-<link href="css/themes/all-themes.css" rel="stylesheet" />
+<link href="{{asset('plugins/node-waves/waves.css')}}" rel="stylesheet" />
+<link href="{{asset('plugins/animate-css/animate.css')}}" rel="stylesheet" />
+<link href="{{asset('css/style.css')}}" rel="stylesheet">
+<link href="{{asset('css/themes/all-themes.css')}}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -78,39 +78,36 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.pwd')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>PWD'S</span>
                         </a>
                     </li>
                     <li>
-                        <a href="senior_citizenes.php" class="menu-toggle">
+                        <a href="{{route('show.senior-citizine')}}" href="senior_citizenes.php" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>SENIOR CITIZENES</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.working')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>WORKING & NONT-WORKING</span>
+                            <span>WORKING</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.nonWorking')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>4PIS</span>
+                            <span>NON WORKING</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.4pis')}}"  class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>4Ps</span>
+                        </a>
+                    <li>
+                        <a href="{{route('show.minors')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>MINOR</span>
                         </a>
@@ -126,11 +123,11 @@
         <div class="container-fluid">
             <div class="block-header d-flex justify-content-between">
                 <a href="{{route('dashboard')}}" class="btn btn-lg mid-blue text-light rounded">
-                    Back
+                    Back to Dashboard
                 </a>
             </div>
             @if(session()->has('message'))
-                <div class="alert alert-success alert-dismissible show" role="alert">
+                <div class="alert alert-success alert-dismissible show text-capitalize" role="alert">
                     {{ session()->get('message') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -143,20 +140,26 @@
                     <div class="card rounded">
                         <div class="header">
                             <h2>
-                                Add Resident
+                                Add Resident with existing family
                             </h2>
                         </div>
                         <div class="body">
                             <form method="POST" action="{{route('store.resident')}}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Family Code</label>
+                                            <input type="number" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="Family code (6 digits)"  onKeyDown="if(this.value.length==6) return false;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" placeholder="First Name">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Last Name</label>
                                             <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" placeholder="Last Name">
@@ -174,10 +177,10 @@
                                             <div class="input-group mb-3">
                                                 <select name="categoryType" class="form-control @error('category') is-invalid @enderror">
                                                   <option selected disabled>Choose...</option>
-                                                  <option value="PWD'S">PWD'S</option>
+                                                  <option value="PWD">PWD'S</option>
                                                   <option value="SENIOR CITIZENS">SENIOR CITIZENS</option>
                                                   <option value="WORKING">WORKING</option>
-                                                  <option value="NOT-WORKING">NOT-WORKING</option>
+                                                  <option value="NON-WORKING">NON-WORKING</option>
                                                   <option value="4PS">4PS</option>
                                                   <option value="MINOR">MINOR</option>
                                                 </select>
@@ -234,7 +237,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn mid-blue text-light rounded">Submit</button>
+                                <button type="submit" class="btn mid-blue text-light rounded">Add</button>
                             </form>
                         </div>
                     </div>
@@ -248,18 +251,18 @@
 
 
 @section('admin-scripts')
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="plugins/node-waves/waves.js"></script>
-    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/node-waves/waves.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+    <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
 @endsection

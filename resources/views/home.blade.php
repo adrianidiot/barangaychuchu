@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">BARANGAY LUCBUBAM</a>
+                <a class="navbar-brand" href="{{route('dashboard')}}">BARANGAY LUCBUBAM</a>
             </div>
         </div>
     </nav>
@@ -78,39 +78,42 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.all-residents')}}" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>ALL RESIDENTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('show.pwd')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>PWD'S</span>
                         </a>
                     </li>
                     <li>
-                        <a href="senior_citizenes.php" class="menu-toggle">
+                        <a href="{{route('show.senior-citizen')}}" href="senior_citizens.php" class="menu-toggle">
                             <i class="material-icons">assignment</i>
-                            <span>SENIOR CITIZENES</span>
+                            <span>SENIOR CITIZENS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.working')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>WORKING & NONT-WORKING</span>
+                            <span>WORKING</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.nonWorking')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>4PIS</span>
+                            <span>NON WORKING</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a href="{{route('show.4pis')}}"  class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>4Ps</span>
+                        </a>
+                    <li>
+                        <a href="{{route('show.minors')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>MINOR</span>
                         </a>
@@ -128,10 +131,13 @@
                 <h2>DASHBOARD</h2>
                 <div>
                     <a href="add-family/{{$generatedFamilyId}}" class="btn btn-lg mid-blue text-light rounded">
-                        <i class="material-icons">person_add</i> <span>Add Family</span>
+                        <i class="material-icons">group_add</i> <span>Add Residents by Family</span>
                     </a>
-                    <a href="{{route('add.resident')}}" class="btn btn-lg mid-blue text-light rounded">
-                        <i class="material-icons">person_add</i> <span>Add Residents</span>
+                    <a href="{{route('add.existing.resident')}}" class="btn btn-lg mid-blue text-light rounded">
+                        <i class="material-icons">group</i> <span>Add Residents with Existing Family</span>
+                    </a>
+                    <a href="{{route('add.new.resident')}}" class="btn btn-lg mid-blue text-light rounded">
+                        <i class="material-icons">person_add</i> <span>Add New Residents</span>
                     </a>
                 </div>
             </div>
@@ -145,7 +151,7 @@
                         </div>
                         <div class="content">
                             <div class="text">PWD'S</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$pwds}}</div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +162,7 @@
                         </div>
                         <div class="content">
                             <div class="text">SENIOR'S</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$seniorCitizens}}</div>
                         </div>
                     </div>
                 </div>
@@ -167,7 +173,7 @@
                         </div>
                         <div class="content">
                             <div class="text">WORKING</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$working}}</div>
                         </div>
                     </div>
                 </div>
@@ -178,7 +184,7 @@
                         </div>
                         <div class="content">
                             <div class="text">NON-WORKING</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$nonWorking}}</div>
                         </div>
                     </div>
                 </div>
@@ -189,7 +195,7 @@
                         </div>
                         <div class="content">
                             <div class="text">4PIS</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$fourPs}}</div>
                         </div>
                     </div>
                 </div>
@@ -200,159 +206,26 @@
                         </div>
                         <div class="content">
                             <div class="text">MINORS</div>
-                            <div class="number">210</div>
+                            <div class="number">{{$minors}}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Widgets -->
-            <!-- RESIDENTS -->
-            <div class="row clearfix">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card rounded">
-                        <div class="header">
-                            <h2>
-                                RESIDENTS
-                            </h2>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    <thead>
-                                        <tr>
-                                            <th>Last</th>
-                                            <th>First</th>
-                                            <th>Middle</th>
-                                            <th>Sex</th>
-                                            <th>Age</th>
-                                            <th>Birth Date</th>
-                                            <th>Birth Place</th>
-                                            <th>Civil Status</th>
-                                            <th>Occupation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if($residents->count() > 0)
-                                            @foreach($residents as $resident)
-                                                <tr>
-                                                    <td>{{$resident->first_name}}</td>
-                                                    <td>{{$resident->last_name}}</td>
-                                                    <td>{{$resident->middle_name}}</td>
-                                                    <td>{{$resident->sex}}</td>
-                                                    <td>{{$resident->age}}</td>
-                                                    <td>{{$resident->birth_date}}</td>
-                                                    <td>{{$resident->birth_place}}</td>
-                                                    <td>{{$resident->civil_status}}</td>
-                                                    <td>{{$resident->occupation}}</td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# RESIDENTS -->
-        
 
             <div class="row clearfix">
-                <!-- Task Info -->
+                <!-- Chart -->
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                     <div class="card rounded">
                         <div class="header">
-                            <h2>TASK INFOS</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <h2>Monthly chuchu</h2>
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-hover dashboard-task-infos">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Task</th>
-                                            <th>Status</th>
-                                            <th>Manager</th>
-                                            <th>Progress</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Task A</td>
-                                            <td><span class="label bg-green">Doing</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Task B</td>
-                                            <td><span class="label bg-blue">To Do</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Task C</td>
-                                            <td><span class="label bg-light-blue">On Hold</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Task D</td>
-                                            <td><span class="label bg-orange">Wait Approvel</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Task E</td>
-                                            <td>
-                                                <span class="label bg-red">Suspended</span>
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <canvas id="line_chart" height="132"></canvas>
                         </div>
                     </div>
                 </div>
-                <!-- #END# Task Info -->
+                <!-- #END# Chart -->
                 <!-- Browser Usage -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card rounded">
@@ -423,5 +296,38 @@
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
     <script src="js/admin.js"></script>
+    <script>
+        $(function () {
+            new Chart(document.getElementById("line_chart").getContext("2d"), getChartJs('line'));
+        });
+
+        function getChartJs(type) {
+            var config = null;
+
+            if (type === 'line') {
+                config = {
+                    type: 'line',
+                    data: {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                        datasets: [{
+                            label: "My First dataset",
+                            data: [65, 59, 80, 81, 56, 55, 40],
+                            borderColor: 'rgba(0, 188, 212, 0.75)',
+                            backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                            pointBorderColor: 'rgba(0, 188, 212, 0)',
+                            pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                            pointBorderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: false
+                    }
+                }
+                return config;
+            }
+        }
+    </script>
 @endsection
