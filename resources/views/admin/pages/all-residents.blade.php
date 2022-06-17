@@ -146,6 +146,7 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
+                                            <th>Family Code</th>
                                             <th>Last</th>
                                             <th>First</th>
                                             <th>Middle</th>
@@ -161,6 +162,7 @@
                                         @if($residents->count() > 0)
                                             @foreach($residents as $resident)
                                                 <tr>
+                                                    <td>{{$resident->family_code}}</td>
                                                     <td>{{$resident->first_name}}</td>
                                                     <td>{{$resident->last_name}}</td>
                                                     <td>{{$resident->middle_name}}</td>
