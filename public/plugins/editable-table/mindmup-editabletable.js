@@ -44,7 +44,7 @@ $.fn.editableTableWidget = function (options) {
 					active.html(originalContent);
 				}
 				$.ajax({
-					url: '/update-data/',
+					url: 'https://barangaychuchu.herokuapp.com/update-data/',
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
