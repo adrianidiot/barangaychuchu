@@ -221,7 +221,7 @@
                             <h2>Monthly chuchu</h2>
                         </div>
                         <div class="body">
-                            <canvas id="line_chart" height="132"></canvas>
+                            <div id="container"></div>
                         </div>
                     </div>
                 </div>
@@ -296,38 +296,51 @@
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="js/admin.js"></script>
-    <script>
-        $(function () {
-            new Chart(document.getElementById("line_chart").getContext("2d"), getChartJs('line'));
-        });
-
-        function getChartJs(type) {
-            var config = null;
-
-            if (type === 'line') {
-                config = {
-                    type: 'line',
-                    data: {
-                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                        datasets: [{
-                            label: "My First dataset",
-                            data: [65, 59, 80, 81, 56, 55, 40],
-                            borderColor: 'rgba(0, 188, 212, 0.75)',
-                            backgroundColor: 'rgba(0, 188, 212, 0.3)',
-                            pointBorderColor: 'rgba(0, 188, 212, 0)',
-                            pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
-                            pointBorderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        legend: false
-                    }
+    <script type="text/javascript">
+        Highcharts.chart('container', {
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+                    'Octo', 'Nov', 'Dec'
+                ]
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of New Residents'
                 }
-                return config;
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+            plotOptions: {
+                series: {
+                    allowPointSelect: true
+                }
+            },
+            series: [{
+                name: 'New Residents',
+                data: [{{$userArr[1]}}, {{$userArr[2]}}, {{$userArr[3]}}, {{$userArr[4]}}, {{$userArr[5]}}, {{$userArr[6]}}, {{$userArr[7]}}, {{$userArr[8]}}, {{$userArr[9]}}, {{$userArr[10]}}, {{$userArr[11]}}, {{$userArr[12]}}]
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
             }
-        }
+        });
     </script>
 @endsection
