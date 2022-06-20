@@ -37,7 +37,7 @@ class HomeController extends Controller
         $minors = Residents::where('category_type', 'MINOR')->count();
         $seniorCitizens = Residents::where('category_type', 'SENIOR CITIZENS')->count();
 
-        $users = Residents::select('id', 'created_at')
+        $users = Residents::select('id', 'created_at')->whereYear("created_at", date('Y'))
                 ->get()
                 ->groupBy(function($date) {
                     //return Carbon::parse($date->created_at)->format('Y'); // grouping by years

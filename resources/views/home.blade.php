@@ -218,7 +218,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                     <div class="card rounded">
                         <div class="header">
-                            <h2>Monthly chuchu</h2>
+                            <h2>Residents Breakdown {{date('Y')}}</h2>
                         </div>
                         <div class="body">
                             <div id="container"></div>
