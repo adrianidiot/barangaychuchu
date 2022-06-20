@@ -157,7 +157,7 @@
                                         <tr>
                                             <th>Family Code</th>
                                             <th>Last</th>
-                                            <th>First {{url('/')}}</th>
+                                            <th>First</th>
                                             <th>Middle</th>
                                             <th>Sex</th>
                                             <th>Age</th>
@@ -173,8 +173,8 @@
                                             @foreach($residents as $resident)
                                                 <tr>
                                                     <td title="code" tabindex="{{$resident->id}}">{{$resident->family_code}}</td>
-                                                    <td title="last" tabindex="{{$resident->id}}">{{$resident->first_name}}</td>
-                                                    <td title="first" tabindex="{{$resident->id}}">{{$resident->last_name}}</td>
+                                                    <td title="last" tabindex="{{$resident->id}}">{{$resident->last_name}}</td>
+                                                    <td title="first" tabindex="{{$resident->id}}">{{$resident->first_name}}</td>
                                                     <td title="middle" tabindex="{{$resident->id}}">{{$resident->middle_name}}</td>
                                                     <td title="sex" tabindex="{{$resident->id}}">{{$resident->sex}}</td>
                                                     <td title="age" tabindex="{{$resident->id}}">{{$resident->age}}</td>
