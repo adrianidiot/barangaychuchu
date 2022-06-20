@@ -204,20 +204,20 @@
 
 
 @section('admin-scripts')
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-    <script src="plugins/node-waves/waves.js"></script>
-    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    <script src="js/pages/tables/jquery-datatable.js"></script>
-    <script src="plugins/editable-table/mindmup-editabletable.js"></script>
-    <script src="js/pages/tables/editable-table.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/node-waves/waves.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+    <script src="{{asset('js/pages/tables/jquery-datatable.js')}}"></script>
+    <script src="{{asset('plugins/editable-table/mindmup-editabletable.js')}}"></script>
+    <script src="{{asset('js/pages/tables/editable-table.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
 @endsection
