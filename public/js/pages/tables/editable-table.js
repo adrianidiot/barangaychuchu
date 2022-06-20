@@ -1,3 +1,3 @@
 $(function () {
-    $('#mainTable').editableTableWidget();
+    $('#residents_table').editableTableWidget();
 });

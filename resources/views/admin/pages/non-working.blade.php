@@ -132,6 +132,15 @@
                     Back to Dashboard
                 </a>
             </div>
+            @if(session()->has('message'))
+                <div class="alert alert-success alert-dismissible show text-capitalize" role="alert">
+                    {{ session()->get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            <span id="message-alert"></span>
             <!-- RESIDENTS -->
             <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -143,9 +152,10 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <table id="residents_table" class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
+                                            <th>Family Code</th>
                                             <th>Last</th>
                                             <th>First</th>
                                             <th>Middle</th>
@@ -155,21 +165,28 @@
                                             <th>Birth Place</th>
                                             <th>Civil Status</th>
                                             <th>Occupation</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if($residents->count() > 0)
                                             @foreach($residents as $resident)
                                                 <tr>
-                                                    <td>{{$resident->first_name}}</td>
-                                                    <td>{{$resident->last_name}}</td>
-                                                    <td>{{$resident->middle_name}}</td>
-                                                    <td>{{$resident->sex}}</td>
-                                                    <td>{{$resident->age}}</td>
-                                                    <td>{{$resident->birth_date}}</td>
-                                                    <td>{{$resident->birth_place}}</td>
-                                                    <td>{{$resident->civil_status}}</td>
-                                                    <td>{{$resident->occupation}}</td>
+                                                    <td title="code" tabindex="{{$resident->id}}">{{$resident->family_code}}</td>
+                                                    <td title="last" tabindex="{{$resident->id}}">{{$resident->first_name}}</td>
+                                                    <td title="first" tabindex="{{$resident->id}}">{{$resident->last_name}}</td>
+                                                    <td title="middle" tabindex="{{$resident->id}}">{{$resident->middle_name}}</td>
+                                                    <td title="sex" tabindex="{{$resident->id}}">{{$resident->sex}}</td>
+                                                    <td title="age" tabindex="{{$resident->id}}">{{$resident->age}}</td>
+                                                    <td title="date" tabindex="{{$resident->id}}">{{$resident->birth_date}}</td>
+                                                    <td title="place" tabindex="{{$resident->id}}">{{$resident->birth_place}}</td>
+                                                    <td title="status" tabindex="{{$resident->id}}">{{$resident->civil_status}}</td>
+                                                    <td title="occu" tabindex="{{$resident->id}}">{{$resident->occupation}}</td>
+                                                    <td>
+                                                        <a href="{{ route('admin.delete.resident', $resident->id) }}" class="btn btn-sm">
+                                                            <i class="material-icons">delete</i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -200,5 +217,7 @@
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="plugins/editable-table/mindmup-editabletable.js"></script>
+    <script src="js/pages/tables/editable-table.js"></script>
     <script src="js/admin.js"></script>
 @endsection

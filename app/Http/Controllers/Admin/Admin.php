@@ -108,4 +108,56 @@ class Admin extends Controller
         return Residents::where('category_type', strtoupper($category))->orderBy('id', 'DESC')->get();
     }
 
+    // delete resident
+    public function deleteResidents($id){
+        $delete = Residents::where('id', intval($id))->delete();
+        if($delete){
+            return back()->with('message', 'Resident deleted.');
+        }
+    }
+
+    //
+    public function updateResident(Request $request){
+
+        switch ($request->category) {
+            case "code":
+                $option = 'family_code';
+                break;
+            case "last":
+                $option = 'last_name';
+                break;
+            case "first":
+                $option = 'first_name';
+                break;
+            case "middle":
+                $option = 'middle_name';
+                break;
+            case "sex":
+                $option = 'sex';
+                break;
+            case "age":
+                $option = 'age';
+                break;
+            case "date":
+                $option = 'birth_date';
+                break;
+            case "place":
+                $option = 'birth_place';
+                break;
+            case "status":
+                $option = 'civil_status';
+                break;
+            case "occu":
+                $option = 'occupation';
+                break;
+        }
+
+        $update = Residents::where('id', $request->index)->update(array($option => $request->text));
+        if($update){
+            return response()->json(['status' => 200, 'message' => $request->category . ' updated.']);
+        }else{
+            return response()->json(['status' => 500, 'message' => 'An Error Occurred.']);
+        }
+        
+    }
 }

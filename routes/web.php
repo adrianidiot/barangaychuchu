@@ -27,6 +27,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/senior-citizen', [App\Http\Controllers\Admin\Admin::class, 'seniorCitizen'])->name('show.senior-citizen');
     Route::get('/minors', [App\Http\Controllers\Admin\Admin::class, 'minors'])->name('show.minors');
     Route::get('/4ps', [App\Http\Controllers\Admin\Admin::class, 'Fourpis'])->name('show.4pis');
+
+    Route::get('/delete-residents/{id}', [App\Http\Controllers\Admin\Admin::class, 'deleteResidents'])->name('admin.delete.resident');
+    Route::post('/update-data', [App\Http\Controllers\Admin\Admin::class, 'updateResident']);
 });
 
 
