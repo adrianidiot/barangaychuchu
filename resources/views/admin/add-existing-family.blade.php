@@ -183,7 +183,7 @@
                                             <div class="input-group mb-3">
                                                 <select name="categoryType" class="form-control @error('category') is-invalid @enderror">
                                                   <option selected disabled>Choose...</option>
-                                                  <option value="PWD">PWD'S</option>
+                                                  <option value="PWD">PWD</option>
                                                   <option value="SENIOR CITIZENS">SENIOR CITIZENS</option>
                                                   <option value="WORKING">WORKING</option>
                                                   <option value="NON-WORKING">NON-WORKING</option>

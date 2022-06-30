@@ -7,7 +7,7 @@
     <form class="text-center" action="{{route('login')}}" method="POST">
       @csrf
       <img class="w-25 img-fluid" src="{{asset('images/user.png')}}" alt="logo">
-      <h1>Barangay LUCBUBAN</h1>
+      <h1>Barangay Lucbuban</h1>
       @if ($errors->any())
           <div class="alert alert-danger">
               <ul>
