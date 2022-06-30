@@ -84,12 +84,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('show.pwd')}}" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>PWD'S</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{route('show.senior-citizen')}}" href="senior_citizens.php" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>SENIOR CITIZENS</span>
@@ -107,11 +101,6 @@
                             <span>NON WORKING</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('show.4pis')}}"  class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>4Ps</span>
-                        </a>
                     <li>
                         <a href="{{route('show.minors')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
@@ -144,18 +133,7 @@
 
             <!-- Widgets -->
             <div class="row clearfix">
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box mid-blue hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">PWD'S</div>
-                            <div class="number">{{$pwds}}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box mid-blue hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
@@ -166,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box mid-blue hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
@@ -177,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box mid-blue hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
@@ -188,18 +166,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box mid-blue hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">4PIS</div>
-                            <div class="number">{{$fourPs}}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box mid-blue hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>

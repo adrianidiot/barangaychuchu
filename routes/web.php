@@ -23,10 +23,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/all-residents', [App\Http\Controllers\Admin\Admin::class, 'allResidents'])->name('show.all-residents');
     Route::get('/working', [App\Http\Controllers\Admin\Admin::class, 'working'])->name('show.working');
     Route::get('/none-working', [App\Http\Controllers\Admin\Admin::class, 'NonWorking'])->name('show.nonWorking');
-    Route::get('/pwd', [App\Http\Controllers\Admin\Admin::class, 'pwd'])->name('show.pwd');
+    // Route::get('/pwd', [App\Http\Controllers\Admin\Admin::class, 'pwd'])->name('show.pwd');
     Route::get('/senior-citizen', [App\Http\Controllers\Admin\Admin::class, 'seniorCitizen'])->name('show.senior-citizen');
     Route::get('/minors', [App\Http\Controllers\Admin\Admin::class, 'minors'])->name('show.minors');
-    Route::get('/4ps', [App\Http\Controllers\Admin\Admin::class, 'Fourpis'])->name('show.4pis');
+    // Route::get('/4ps', [App\Http\Controllers\Admin\Admin::class, 'Fourpis'])->name('show.4pis');
 
     Route::get('/delete-residents/{id}', [App\Http\Controllers\Admin\Admin::class, 'deleteResidents'])->name('admin.delete.resident');
     Route::post('/update-data', [App\Http\Controllers\Admin\Admin::class, 'updateResident']);

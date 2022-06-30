@@ -29,6 +29,7 @@ class Admin extends Controller
             'lastName' => 'required',
             'middleName' => 'required',
             'categoryType' => 'required',
+            'categoryStatus' => 'required',
             'sex' => 'required',
             'age' => 'required',
             'birthDate' => 'required',
@@ -54,6 +55,7 @@ class Admin extends Controller
             'last_name' => $request->lastName,
             'middle_name' => $request->middleName,
             'category_type' => $request->categoryType,
+            'category_status' => $request->categoryStatus,
             'sex' => $request->sex,
             'age' => $request->age,
             'birth_date' => $request->birthDate,
@@ -84,15 +86,15 @@ class Admin extends Controller
         return view('admin.pages.non-working', compact('residents'));
     }
 
-    public function Fourpis(){
-        $residents = $this->getResidents('4PS');
-        return view('admin.pages.four-pis', compact('residents'));
-    }
+    // public function Fourpis(){
+    //     $residents = $this->getResidents('4PS');
+    //     return view('admin.pages.four-pis', compact('residents'));
+    // }
 
-    public function pwd(){
-        $residents = $this->getResidents('PWD');
-        return view('admin.pages.pwd', compact('residents'));
-    }
+    // public function pwd(){
+    //     $residents = $this->getResidents('PWD');
+    //     return view('admin.pages.pwd', compact('residents'));
+    // }
 
     public function minors(){
         $residents = $this->getResidents('MINOR');

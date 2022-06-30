@@ -154,13 +154,13 @@
                                 @csrf
                                 <input type="hidden" name="code" value="{{$familyId}}">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input type="text" name="firstName" class="form-control @error('firstName') is-invalid @enderror" placeholder="First Name">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Last Name</label>
                                             <input type="text" name="lastName" class="form-control @error('lastName') is-invalid @enderror" placeholder="Last Name">
@@ -176,14 +176,26 @@
                                         <div class="form-group">
                                             <label>Category Type</label>
                                             <div class="input-group mb-3">
-                                                <select name="categoryType" class="form-control @error('category') is-invalid @enderror">
-                                                  <option selected disabled>Choose...</option>
-                                                  <option value="PWD">PWD</option>
+                                                <select name="categoryType" class="form-control @error('categoryType') is-invalid @enderror">
+                                                  <option selected disabled>Choose Type</option>
                                                   <option value="SENIOR CITIZENS">SENIOR CITIZENS</option>
                                                   <option value="WORKING">WORKING</option>
                                                   <option value="NON-WORKING">NON-WORKING</option>
-                                                  <option value="4PS">4PS</option>
                                                   <option value="MINOR">MINOR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Category Status</label>
+                                            <div class="input-group mb-3">
+                                                <select name="categoryStatus" class="form-control @error('categoryStatus') is-invalid @enderror">
+                                                  <option selected disabled>Choose Status</option>
+                                                  <option value="PWD">PWD</option>
+                                                  <option value="4PS">4PS</option>
+                                                  <option value="4PS/PWD">4PS/PWD</option>
+                                                  <option value="N/A">N/A</option>
                                                 </select>
                                             </div>
                                         </div>

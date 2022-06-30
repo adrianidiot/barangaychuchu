@@ -14,6 +14,7 @@ class Residents extends Model
         'last_name',
         'middle_name',
         'category_type',
+        'category_status',
         'sex',
         'age',
         'birth_date',

@@ -19,6 +19,7 @@ class CreateResidentsTable extends Migration
             $table->string('last_name');
             $table->string('middle_name');
             $table->string('category_type');
+            $table->string('category_status');
             $table->string('sex');
             $table->string('age');
             $table->string('birth_date');
