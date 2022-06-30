@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">BARANGAY LUCBUBAM</a>
+                <a class="navbar-brand" href="index.html">Barangay Lucbuban</a>
             </div>
         </div>
     </nav>
@@ -227,6 +227,7 @@
                                                   <option value="Single">Single</option>
                                                   <option value="Maried">Maried</option>
                                                   <option value="Divorced">Divorced</option>
+                                                  <option value="Widowed">Widowed</option>
                                                 </select>
                                             </div>
                                         </div>
