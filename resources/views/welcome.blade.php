@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Barangay ChuChu')
+@section('title', 'Barangay Lucbuban')
 
 @section('content')
   <div class="d-flex justify-content-center align-items-center welcome-page">
