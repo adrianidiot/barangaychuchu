@@ -150,7 +150,7 @@ class Admin extends Controller
                     $option = 'birth_date';
                     break;
                 }
-                return response()->json(['status' => 500, 'message' => 'Format should be "yyyy-mm-dd"']);
+                return response()->json(['status' => 500, 'message' => 'Format should be "YYYY-MM-DD"']);
             case "place":
                 $option = 'birth_place';
                 break;
