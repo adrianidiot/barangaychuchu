@@ -84,12 +84,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('show.pwd')}}" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>PWD'S</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{route('show.senior-citizen')}}" href="senior_citizens.php" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>SENIOR CITIZENS</span>
@@ -107,11 +101,6 @@
                             <span>NON WORKING</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('show.4pis')}}"  class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>4Ps</span>
-                        </a>
                     <li>
                         <a href="{{route('show.minors')}}" class="menu-toggle">
                             <i class="material-icons">view_list</i>
