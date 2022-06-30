@@ -6,11 +6,11 @@ if (env('APP_ENV') === 'production') {
     URL::forceSchema('https');
 }
 
-Auth::routes();
-
 Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
+
+Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
