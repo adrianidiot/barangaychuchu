@@ -120,7 +120,6 @@ class Admin extends Controller
 
     //
     public function updateResident(Request $request){
-
         switch ($request->category) {
             case "code":
                 $option = 'family_code';
@@ -135,8 +134,11 @@ class Admin extends Controller
                 $option = 'middle_name';
                 break;
             case "sex":
-                $option = 'sex';
-                break;
+                if($request->text == 'Male' || $request->text == 'Female'){
+                    $option = 'sex';
+                    break;
+                }
+                return response()->json(['status' => 500, 'message' => 'Should be "Male" or "Female"']);
             case "age":
                 $option = 'age';
                 break;
@@ -145,6 +147,12 @@ class Admin extends Controller
                 break;
             case "place":
                 $option = 'birth_place';
+                break;
+            case "type":
+                $option = 'category_type';
+                break;
+            case "catStatus":
+                $option = 'category_status';
                 break;
             case "status":
                 $option = 'civil_status';
