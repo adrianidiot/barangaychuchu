@@ -136,7 +136,7 @@
                     <div class="card rounded">
                         <div class="header">
                             <h2 class="d-flex justify-content-between align-items-center">
-                                <span>WORKING RESIDENTS</span> <span class="badge mid-blue text-white">{{$residents->count()}}</span>
+                                <span>ALL RESIDENTS</span> <span class="badge mid-blue text-white">{{$residents->count()}}</span>
                             </h2>
                         </div>
                         <div class="body">
@@ -152,6 +152,8 @@
                                             <th>Age</th>
                                             <th>Birth Date</th>
                                             <th>Birth Place</th>
+                                            <th>Category Type</th>
+                                            <th>Category Status</th>
                                             <th>Civil Status</th>
                                             <th>Occupation</th>
                                             <th>Action</th>
@@ -169,6 +171,8 @@
                                                     <td title="age" tabindex="{{$resident->id}}">{{$resident->age}}</td>
                                                     <td title="date" tabindex="{{$resident->id}}">{{$resident->birth_date}}</td>
                                                     <td title="place" tabindex="{{$resident->id}}">{{$resident->birth_place}}</td>
+                                                    <td title="type" tabindex="{{$resident->id}}">{{$resident->category_type}}</td>
+                                                    <td title="catStatus" tabindex="{{$resident->id}}">{{$resident->category_status}}</td>
                                                     <td title="status" tabindex="{{$resident->id}}">{{$resident->civil_status}}</td>
                                                     <td title="occu" tabindex="{{$resident->id}}">{{$resident->occupation}}</td>
                                                     <td>
