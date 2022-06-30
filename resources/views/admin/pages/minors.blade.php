@@ -163,18 +163,18 @@
                                         @if($residents->count() > 0)
                                             @foreach($residents as $resident)
                                                 <tr>
-                                                    <td title="code" tabindex="{{$resident->id}}">{{$resident->family_code}}</td>
-                                                    <td title="last" tabindex="{{$resident->id}}">{{$resident->last_name}}</td>
-                                                    <td title="first" tabindex="{{$resident->id}}">{{$resident->first_name}}</td>
-                                                    <td title="middle" tabindex="{{$resident->id}}">{{$resident->middle_name}}</td>
+                                                    <td title="Family code" tabindex="{{$resident->id}}">{{$resident->family_code}}</td>
+                                                    <td title="Last Name" tabindex="{{$resident->id}}">{{$resident->last_name}}</td>
+                                                    <td title="First Name" tabindex="{{$resident->id}}">{{$resident->first_name}}</td>
+                                                    <td title="Middle Name" tabindex="{{$resident->id}}">{{$resident->middle_name}}</td>
                                                     <td title="sex" tabindex="{{$resident->id}}">{{$resident->sex}}</td>
                                                     <td title="age" tabindex="{{$resident->id}}">{{$resident->age}}</td>
-                                                    <td title="date" tabindex="{{$resident->id}}">{{$resident->birth_date}}</td>
-                                                    <td title="place" tabindex="{{$resident->id}}">{{$resident->birth_place}}</td>
-                                                    <td title="type" tabindex="{{$resident->id}}">{{$resident->category_type}}</td>
-                                                    <td title="catStatus" tabindex="{{$resident->id}}">{{$resident->category_status}}</td>
-                                                    <td title="status" tabindex="{{$resident->id}}">{{$resident->civil_status}}</td>
-                                                    <td title="occu" tabindex="{{$resident->id}}">{{$resident->occupation}}</td>
+                                                    <td title="Birth Date" tabindex="{{$resident->id}}">{{$resident->birth_date}}</td>
+                                                    <td title="Birth Place" tabindex="{{$resident->id}}">{{$resident->birth_place}}</td>
+                                                    <td title="Catrgory Type" tabindex="{{$resident->id}}">{{$resident->category_type}}</td>
+                                                    <td title="Catrgory Status" tabindex="{{$resident->id}}">{{$resident->category_status}}</td>
+                                                    <td title="Civil Status" tabindex="{{$resident->id}}">{{$resident->civil_status}}</td>
+                                                    <td title="Occupation" tabindex="{{$resident->id}}">{{$resident->occupation}}</td>
                                                     <td>
                                                         <a href="{{ route('admin.delete.resident', $resident->id) }}" class="btn btn-sm">
                                                             <i class="material-icons">delete</i>

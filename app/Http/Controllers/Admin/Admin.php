@@ -121,16 +121,16 @@ class Admin extends Controller
     //
     public function updateResident(Request $request){
         switch ($request->category) {
-            case "code":
+            case "Family code":
                 $option = 'family_code';
                 break;
-            case "last":
+            case "Last Name":
                 $option = 'last_name';
                 break;
-            case "first":
+            case "First Name":
                 $option = 'first_name';
                 break;
-            case "middle":
+            case "Middle Name":
                 $option = 'middle_name';
                 break;
             case "sex":
@@ -145,34 +145,34 @@ class Admin extends Controller
                     break;
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be ( DIGITS )']);
-            case "date":
+            case "Birth Date":
                 if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$request->text)) {
                     $option = 'birth_date';
                     break;
                 }
                 return response()->json(['status' => 500, 'message' => 'Format should be "YYYY-MM-DD"']);
-            case "place":
+            case "Birth Place":
                 $option = 'birth_place';
                 break;
-            case "type":
+            case "Catrgory Type":
                 if($request->text == 'SENIOR CITIZENS' || $request->text == 'WORKING' || $request->text == 'NON-WORKING'|| $request->text == 'MINOR'){
                     $option = 'category_type';
                     break;
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be "SENIOR CITIZENS|WORKING|NON-WORKING or MINOR"']);
-            case "catStatus":
+            case "Catrgory Status":
                 if($request->text == 'PWD' || $request->text == '4PS' || $request->text == '4PS/PWD'|| $request->text == 'N/A'){
                     $option = 'category_status';
                     break;
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be "PWD|4PS|4PS/PWD" or N/A"']);
-            case "status":
+            case "Civil Status":
                 if($request->text == 'Single' || $request->text == 'Maried' || $request->text == 'Divorced'|| $request->text == 'Widowed'){
                     $option = 'civil_status';
                     break;
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be "Single|Maried|Divorced or Widowed"']);
-            case "occu":
+            case "Occupation":
                 $option = 'occupation';
                 break;
         }
