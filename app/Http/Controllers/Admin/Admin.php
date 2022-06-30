@@ -122,7 +122,7 @@ class Admin extends Controller
     public function updateResident(Request $request){
         switch ($request->category) {
             case "code":
-                if(is_int($request->text) || strlen((string)abs($request->text)) == 5){
+                if(is_int($request->text) && strlen((string)abs($request->text)) == 5){
                     $option = 'family_code';
                     break;
                 }
