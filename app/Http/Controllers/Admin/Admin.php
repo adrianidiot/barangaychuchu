@@ -146,8 +146,11 @@ class Admin extends Controller
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be ( DIGITS )']);
             case "date":
-                $option = 'birth_date';
-                break;
+                if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date)) {
+                    $option = 'birth_date';
+                    break;
+                }
+                return response()->json(['status' => 500, 'message' => 'Format should be "yyyy-mm-dd"']);
             case "place":
                 $option = 'birth_place';
                 break;
