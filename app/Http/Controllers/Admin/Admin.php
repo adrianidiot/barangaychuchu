@@ -140,7 +140,7 @@ class Admin extends Controller
                 }
                 return response()->json(['status' => 500, 'message' => 'Should be "Male" or "Female"']);
             case "age":
-                if(is_int($request->text)){
+                if(is_int($request->text) == 1){
                     $option = 'age';
                     break;
                 }
