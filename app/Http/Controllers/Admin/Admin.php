@@ -126,7 +126,7 @@ class Admin extends Controller
                     $option = 'family_code';
                     break;
                 }
-                return response()->json(['status' => 500, 'message' => 'Should be "Male" or "Female"']);
+                return response()->json(['status' => 500, 'message' => 'Should be ( 6 DIGITS )']);
             case "last":
                 $option = 'last_name';
                 break;
