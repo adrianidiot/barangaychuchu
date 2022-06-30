@@ -122,8 +122,11 @@ class Admin extends Controller
     public function updateResident(Request $request){
         switch ($request->category) {
             case "code":
-                $option = 'family_code';
-                break;
+                if(is_int($request->text) || strlen((string)abs($request->text)) == 5){
+                    $option = 'family_code';
+                    break;
+                }
+                return response()->json(['status' => 500, 'message' => 'Should be "Male" or "Female"']);
             case "last":
                 $option = 'last_name';
                 break;
