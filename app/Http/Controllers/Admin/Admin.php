@@ -185,4 +185,13 @@ class Admin extends Controller
         }
         
     }
+
+    // delete resident
+    public function deleteResidenet($id){
+        $delete = Residents::find($id)->delete();
+
+        if($delete){
+            return response()->json()
+        }
+    }
 }
