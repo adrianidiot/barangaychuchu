@@ -119,7 +119,7 @@ class Admin extends Controller
     }
 
     //
-    public function updateResident(Request $request){
+    public function updateResident(Request $request){ 
         switch ($request->category) {
             case "Family code":
                 $option = 'family_code';
