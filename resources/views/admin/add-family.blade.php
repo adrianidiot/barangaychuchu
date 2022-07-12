@@ -239,6 +239,21 @@
                                             <input type="text" name="occupation" class="form-control @error('occupation') is-invalid @enderror" placeholder="Occupation">
                                         </div>
                                     </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Vaccine Status</label>
+                                            <div class="input-group mb-3">
+                                                <select name="vaccination" class="form-control @error('civilStatus') is-invalid @enderror">
+                                                  <option selected disabled>Choose...</option>
+                                                  <option value="Unvaccinated">Unvaccinated</option>
+                                                  <option value="Partially Vaccinated">Partially Vaccinated</option>
+                                                  <option value="Fully Vaccinated">Fully Vaccinated</option>
+                                                  <option value="Fully Vaccinated with Booster 1">Fully Vaccinated with Booster 1</option>
+                                                  <option value="Fully Vaccinated with Booster 2">Fully Vaccinated with Booster 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn mid-blue text-light rounded">Add</button>
                             </form>

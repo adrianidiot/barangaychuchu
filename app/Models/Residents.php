@@ -21,6 +21,7 @@ class Residents extends Model
         'birth_place',
         'civil_status',
         'occupation',
-        'family_code'
+        'family_code',
+        'vaccine'
     ];
 }

@@ -156,6 +156,7 @@
                                             <th>Category Status</th>
                                             <th>Civil Status</th>
                                             <th>Occupation</th>
+                                            <th>Vaccine Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -175,6 +176,7 @@
                                                     <td title="Catrgory Status" tabindex="{{$resident->id}}">{{$resident->category_status}}</td>
                                                     <td title="Civil Status" tabindex="{{$resident->id}}">{{$resident->civil_status}}</td>
                                                     <td title="Occupation" tabindex="{{$resident->id}}">{{$resident->occupation}}</td>
+                                                    <td title="Vaccine Status" tabindex="{{$resident->id}}">{{$resident->vaccine}}</td>
                                                     <td>
                                                         <a href="{{ route('admin.delete.resident', $resident->id) }}" class="btn btn-sm">
                                                             <i class="material-icons">delete</i>

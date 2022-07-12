@@ -36,6 +36,7 @@ class Admin extends Controller
             'birthPlace' => 'required',
             'civilStatus' => 'required',
             'occupation' => 'required',
+            'vaccination' => 'required',
         ]);
         if($request->code){
             $famCode = $request->lastName . '-' . $request->code;
@@ -62,7 +63,8 @@ class Admin extends Controller
             'birth_place' => $request->birthPlace,
             'civil_status' => $request->civilStatus,
             'occupation' => $request->occupation,
-            'family_code' => $familyCode
+            'family_code' => $familyCode,
+            'vaccine' => $request->vaccination,
         ));
 
         if($storeResidents){
@@ -85,16 +87,6 @@ class Admin extends Controller
         $residents = $this->getResidents('NON-WORKING');
         return view('admin.pages.non-working', compact('residents'));
     }
-
-    // public function Fourpis(){
-    //     $residents = $this->getResidents('4PS');
-    //     return view('admin.pages.four-pis', compact('residents'));
-    // }
-
-    // public function pwd(){
-    //     $residents = $this->getResidents('PWD');
-    //     return view('admin.pages.pwd', compact('residents'));
-    // }
 
     public function minors(){
         $residents = $this->getResidents('MINOR');
@@ -175,6 +167,12 @@ class Admin extends Controller
             case "Occupation":
                 $option = 'occupation';
                 break;
+            case "Vaccine Status":
+                if($request->text == 'Unvaccinated' || $request->text == 'Partially Vaccinated' || $request->text == 'Fully Vaccinated'|| $request->text == 'Fully Vaccinated with Booster 1' || $request->text == 'Fully Vaccinated with Booster 2'){
+                    $option = 'vaccine';
+                    break;
+                }
+                return response()->json(['status' => 500, 'message' => 'Should be "Unvaccinated|Partially Vaccinated|Fully Vaccinated|Fully Vaccinated with Booster 1 or Fully Vaccinated with Booster 2"']);
         }
 
         $update = Residents::where('id', $request->index)->update(array($option => $request->text));
