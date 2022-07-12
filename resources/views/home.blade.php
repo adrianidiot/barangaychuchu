@@ -118,7 +118,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header d-flex justify-content-between">
-                <h2>DASHBOARD</h2>
+                <h2 class="text-white">DASHBOARD</h2>
                 <div>
                     <a href="add-family/{{$generatedFamilyId}}" class="btn btn-lg mid-blue text-light rounded">
                         <i class="material-icons">group_add</i> <span>Add Residents by Family</span>
