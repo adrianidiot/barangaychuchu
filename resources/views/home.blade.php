@@ -31,6 +31,7 @@
             <p>Please wait...</p>
         </div>
     </div>
+    
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>

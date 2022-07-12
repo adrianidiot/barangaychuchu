@@ -207,3 +207,9 @@
   .humidity i{
     font-size: 37px;
   }
+  .about-btn{
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 999999;
+  }
