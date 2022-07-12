@@ -27,7 +27,7 @@ class CreateResidentsTable extends Migration
             $table->string('civil_status');
             $table->string('occupation');
             $table->string('family_code');
-            $table->string('vaccine');
+            $table->longText('vaccine');
             $table->timestamps();
         });
     }

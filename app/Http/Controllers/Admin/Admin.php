@@ -168,11 +168,11 @@ class Admin extends Controller
                 $option = 'occupation';
                 break;
             case "Vaccine Status":
-                if($request->text == 'Unvaccinated' || $request->text == 'Partially Vaccinated' || $request->text == 'Fully Vaccinated'|| $request->text == 'Fully Vaccinated with Booster 1' || $request->text == 'Fully Vaccinated with Booster 2'){
+                if($request->text == 'Unvaccinated' || $request->text == 'Partially Vaccinated' || $request->text == 'Fully Vaccinated' || $request->text === 'Fully Vaccinated with Booster 1' || $request->text == 'Fully Vaccinated With Booster 2'){
                     $option = 'vaccine';
                     break;
                 }
-                return response()->json(['status' => 500, 'message' => 'Should be "Unvaccinated|Partially Vaccinated|Fully Vaccinated|Fully Vaccinated with Booster 1 or Fully Vaccinated with Booster 2"']);
+                return response()->json(['status' => 500, 'message' => 'Should be "Unvaccinated|Partially Vaccinated|Fully Vaccinated|Fully Vaccinated With Booster 1 or Fully Vaccinated with Booster 2"']);
         }
 
         $update = Residents::where('id', $request->index)->update(array($option => $request->text));
