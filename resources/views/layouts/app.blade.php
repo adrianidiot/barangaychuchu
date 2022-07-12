@@ -19,6 +19,7 @@
         <main>
             @yield('content')
         </main>
+        @auth
         <button type="button" class="btn btn-lg mid-blue text-light rounded about-btn" data-toggle="modal" data-target="#about">
             About
         </button>
@@ -96,6 +97,7 @@
                 </div>
             </div>
         </div>
+        @endauth
     </div>
 
     <script src="{{ mix('/js/app.js') }}" defer></script>
